@@ -1,0 +1,17 @@
+<Party>
+    <Player>
+        <Name>Butch</Name>
+        <Level>1</Level>
+        <Class>Fighter</Class>
+    </Player>
+    <Player>
+        <Name>Shadow</Name>
+        <Level>2</Level>
+        <Class>Rogue</Class>
+    </Player>
+    <Player>
+        <Name>Crak</Name>
+        <Level>3</Level>
+        <Class>Wizard</Class>
+    </Player>
+</Party>

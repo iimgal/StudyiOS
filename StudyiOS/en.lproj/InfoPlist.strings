@@ -1,0 +1,7 @@
+/* Localized versions of Info.plist keys */
+
+"Pause" = "Pause";
+"Resume" = "Resume";
+"unfilteredGraph" = "Unfiltered graph";
+"filteredGraph" = "Filtered graph";
+"graphSegmentFormat" = "x value: %1$.2f, y value: %2$.2f, z value: %3$.2f";
