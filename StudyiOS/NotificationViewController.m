@@ -95,7 +95,7 @@ NSString *globalString;
 // 跳转至教学页面
 - (void)code
 {
-    CodeViewController *controller = [[CodeViewController alloc] init];
+    CodeViewController *controller = [[CodeViewController alloc] initWithNibName:@"CodeViewController" bundle:nil];
     NSString *name = [NSString stringWithUTF8String:object_getClassName(self)];
     controller.className = name;
     

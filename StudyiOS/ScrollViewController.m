@@ -7,135 +7,89 @@
 //
 
 #import "ScrollViewController.h"
-
-@interface ScrollViewController()
-@property (strong, nonatomic) NSArray *colors;
-@end
+#import "UIScrollView+TouchScroll.h"
 
 @implementation ScrollViewController
 @synthesize scrollView;
-@synthesize pageControl;
-@synthesize colors;
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidLoad
-{
-    // 增加Code按钮，可跳转至教学页面
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Code" style:UIBarButtonItemStyleBordered target:self action:@selector(code)];
-    self.navigationItem.rightBarButtonItem = item;
-    
-    colors = [NSArray arrayWithObjects:
-              [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1],
-              [UIColor blueColor],
-              [UIColor redColor],
-              [UIColor yellowColor],
-              [UIColor orangeColor],
-              [UIColor cyanColor],
-              [UIColor purpleColor],
-              [UIColor brownColor],
-              [UIColor magentaColor],
-              [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1],
-              nil];
-    // 创建滑动视图
-    scrollView = [[TTScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height - 40 - 5.f)];
-    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    // 设置委托
-    scrollView.dataSource = self;
-    scrollView.delegate = self;
-    scrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:scrollView];
-    // 创建页面控制器
-    pageControl = [[TTPageControl alloc] initWithFrame:CGRectMake(0,380, self.view.width, 20)];
-    pageControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    pageControl.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    pageControl.currentPage = 0;
-    pageControl.numberOfPages = [colors count];
-    [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:pageControl];
-    
-    [super viewDidLoad];
-}
-
+#pragma mark - View lifecycle
 
 - (void)viewDidUnload
 {
     [self setScrollView:nil];
-    [self setPageControl:nil];
-    [self setColors:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTScrollViewDataSource
-// 有多少页面
-- (NSInteger)numberOfPagesInScrollView:(TTScrollView*)scrollView {
-    return colors.count;
-}
-// 创建页面
-- (UIView*)scrollView:(TTScrollView*)scrollView pageAtIndex:(NSInteger)pageIndex {
-    TTView* pageView = nil;
-    if (!pageView) {
-        pageView = [[TTView alloc] init];
-        pageView.backgroundColor = [UIColor clearColor];
-        pageView.userInteractionEnabled = NO;
-        //pageView.contentMode = UIViewContentModeLeft;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // 增加Code按钮，可跳转至教学页面
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Code" style:UIBarButtonItemStyleBordered target:self action:@selector(code)];
+    self.navigationItem.rightBarButtonItem = item;
+    
+    // 是否按页滚动
+    self.scrollView.pagingEnabled = YES;
+    // 背景色
+    self.scrollView.backgroundColor = [UIColor blackColor];
+    // 滚动条颜色 因为背景为黑,所以用白色
+    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    // 隐藏滚动条
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    
+    self.scrollView.canCancelContentTouches = NO;
+    
+    self.scrollView.clipsToBounds = YES;
+    // 设置委托
+    self.scrollView.delegate = self;
+    
+    // 图片
+    NSArray *array = [NSArray arrayWithObjects:@"red.png", @"green.png", @"blue.png", nil];
+    
+    CGRect rect = self.scrollView.bounds;
+    rect = CGRectMake(0, 0, rect.size.width, rect.size.height - 44);
+    
+    CGFloat width = rect.size.width;
+    
+    int i = 0;
+    for (NSString *name in array) 
+    {
+        // 创建ImageView
+        UIImage *image = [UIImage imageNamed:name];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
+        imageView.image = image;
+        
+        // 加入到ScrollView
+        [self.scrollView addSubview:imageView];
+        
+        // 修改子视图位置
+        CGRect frame = imageView.frame;
+        frame.origin = CGPointMake(width*i, 0);
+        imageView.frame = frame;
+        
+        i++;
     }
     
-    pageView.style =
-    [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:30] next:
-     [TTInsetStyle styleWithInset:UIEdgeInsetsMake(10, 10, 10, 10) next:
-      [TTLinearGradientFillStyle styleWithColor1:[UIColor whiteColor]
-                                          color2:[colors objectAtIndex:pageIndex] next:
-       [TTSolidBorderStyle styleWithColor:[UIColor blueColor] width:1 next:
-        nil]]]];
+    // 设置ScrollView大小
+    self.scrollView.contentSize = CGSizeMake(width*[array count], scrollView.bounds.size.height);
     
-    return pageView;
 }
-// 页面大小
-- (CGSize)scrollView:(TTScrollView*)scrollView sizeOfPageAtIndex:(NSInteger)pageIndex {
-    return CGSizeMake(320, 416);
-}
-
 #pragma mark -
-#pragma mark TTScrollViewDelegate
-// 移动页面触发
-- (void)scrollView:(TTScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex {
-    pageControl.currentPage = pageIndex;
-}
-
-#pragma mark -
-#pragma mark UIViewController overrides
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return YES;
-}
-
-- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-}
-
-#pragma mark -
-#pragma mark TTPageControl
-
-- (IBAction)changePage:(id)sender {
-    int page = pageControl.currentPage;
-    [scrollView setCenterPageIndex:page];
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touchesBegan");
 }
 
 // 跳转至教学页面
 - (void)code
 {
-    CodeViewController *controller = [[CodeViewController alloc] init];
+    CodeViewController *controller = [[CodeViewController alloc] initWithNibName:@"CodeViewController" bundle:nil];
     NSString *name = [NSString stringWithUTF8String:object_getClassName(self)];
     controller.className = name;
     

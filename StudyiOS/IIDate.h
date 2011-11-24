@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kFormat @"YYYYMMddHHmmss"  // 时间格式 需要不同的格式可在此修改
+#define kFormat @"YYYY-MM-dd HH:mm:ss"  // 时间格式 需要不同的格式可在此修改
 
 @interface IIDate : NSObject {
     NSDateFormatter *formatter;    

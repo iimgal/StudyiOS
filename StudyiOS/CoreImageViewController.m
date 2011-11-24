@@ -1,20 +1,38 @@
 //
-//  CoreImageViewController.m
-//  StudyiOS
+//  ViewController.m
+//  CoreImage
 //
-//  Created by  on 11-10-11.
-//  Copyright (c) 2011年 ZhangYiCheng. All rights reserved.
+//  Created by  on 11-11-13.
+//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
 //
 
 #import "CoreImageViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreImage/CoreImage.h>
 
-#import "ES1Renderer.h"
-#import "ES2Renderer.h"
+@interface CoreImageViewController()
+
+@property (strong, nonatomic) CIContext *context;
+@property (strong, nonatomic) CIFilter *filter;
+@property (strong, nonatomic) CIFilter *filter2;
+@property (strong, nonatomic) CIFilter *filter3;
+@property (strong, nonatomic) CIImage *beginImage;
+
+- (void)logAllFilters;
+
+@end
 
 @implementation CoreImageViewController
 
-@synthesize imageView;
-
+@synthesize imgV;
+@synthesize slider;
+@synthesize slider2;
+@synthesize slider3;
+@synthesize context;
+@synthesize filter;
+@synthesize filter2;
+@synthesize filter3;
+@synthesize beginImage;
 
 - (void)didReceiveMemoryWarning
 {
@@ -22,150 +40,193 @@
 }
 
 #pragma mark - View lifecycle
-//- (id)initWithCoder:(NSCoder *)aDecoder
-//{
-//    if ((self = [super initWithCoder:aDecoder]))
-//    {
-//        CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.view.layer;
-//        
-//        eaglLayer.opaque = TRUE;
-//        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                        [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
-//		
-//    }
-//    
-//    return self;
-//}
+- (void)viewDidUnload
+{
+    [self setImgV:nil];
+    [self setSlider:nil];
+    self.context = nil;
+    self.filter = nil;
+    self.filter2 = nil;
+    self.filter3 = nil;
+    self.beginImage = nil;
+    [self setSlider2:nil];
+    [self setSlider3:nil];
+    [super viewDidUnload];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Code" style:UIBarButtonItemStyleBordered target:self action:@selector(code)];
+    self.navigationItem.rightBarButtonItem = item;
 
-
-- (void)viewDidUnload
-{
-    self.imageView = nil;
-    [super viewDidUnload];
-}
-
-
-- (IBAction)buttonPressed:(id)sender
-{
-    //NSArray *array = [CIFilter filterNamesInCategories:nil];
+    // 打印所有过滤器信息
+    [self logAllFilters];
     
-//    CIFilter *myFilter;
-//    NSDictionary *myFilterAttributes;
-//    myFilter = [CIFilter filterWithName:@"CIExposureFilter"];
-//    myFilterAttributes = [myFilter attributes];
+    // 得到图片路径创建CIImage对象
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"girl" ofType:@"png"];
+    NSURL *fileNameAndPath = [NSURL fileURLWithPath:filePath];
+    beginImage = [CIImage imageWithContentsOfURL:fileNameAndPath];
     
-//    NSMutableDictionary *categories = [[NSMutableDictionary alloc] init];
-//    
-//    NSMutableArray  *array = [NSMutableArray arrayWithArray:
-//             [CIFilter filterNamesInCategories:nil]];
-//    
-//    [categories setObject: [self buildFilterDictionary: array]
-//                   forKey: @"All"];
+    // 创建基于GPU的CIContext对象
+    context = [CIContext contextWithOptions: nil];
     
+    // 创建基于CPU的CIContext对象
+    //context = [CIContext contextWithOptions: [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:kCIContextUseSoftwareRenderer]];
     
-//    CIContext *context;
-//    
-//    if(context == nil)
-//    {
-//        context = [CIContext contextWithCGContext:
-//                   [[UIGraphicsContext currentContext] graphicsPort]
-//                                          options: nil]
-//        [context retain];
-//    }
+    // 创建过滤器
+    filter = [CIFilter filterWithName:@"CISepiaTone"];
+    filter2 = [CIFilter filterWithName:@"CIHueAdjust"];
+    filter3 = [CIFilter filterWithName:@"CIStraightenFilter"];
     
-//    CIContext *myCIContext;
-//    const NSOpenGLPixelFormatAttribute attr[] = {
-//        NSOpenGLPFAAccelerated,
-//        NSOpenGLPFANoRecovery,
-//        NSOpenGLPFAColorSize, 32,
-//        0
-//    };
-//    pf = [[NSOpenGLPixelFormat alloc] initWithAttributes:(void *)&attr];
-//    myCIContext = [CIContext contextWithCGLContext: CGLGetCurrentContext()
-//                                       pixelFormat: [pf CGLPixelFormatObj]
-//                                           options: nil];
-    //ES2Renderer *renderer = [[ES2Renderer alloc] init];
-    //[renderer resizeFromLayer:(CAEAGLLayer*)self.view.layer];
-    
-    // Get the layer
-
-    CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.imageView.layer;
-    
-    eaglLayer.opaque = TRUE;
-    eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
-    
-    ES2Renderer *renderer = [[ES2Renderer alloc] init];
-    
-    //EAGLContext *eContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [renderer resizeFromLayer:(CAEAGLLayer*)self.imageView.layer];
-    
-    //[eContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.imageView.layer];
-    
-    EAGLContext *eContext = [EAGLContext currentContext];
-    CIContext *context = [CIContext contextWithEAGLContext:eContext];
-    
-    //CIImage *myCIImage = [[CIImage alloc] initWithImage:self.imageView.image];
-    
-    
-    CIImage *myCIImage = [[CIImage alloc] initWithImage:self.imageView.image];
-    
-//    CIFilter *hueAdjust = [CIFilter filterWithName:@"CIHueAdjust"];
-//    [hueAdjust setDefaults];
-//    [hueAdjust setValue: myCIImage forKey: @"inputImage"];
-//    [hueAdjust setValue: [NSNumber numberWithFloat: 2.094]
-//                 forKey: @"inputAngle"];
-//    CIImage *result = [hueAdjust valueForKey: @"outputImage"];
-    CIImage *result = myCIImage;
-    
-    CGRect rect = CGRectMake(0, 0, 640, 960);
-    
-    [context drawImage:result atPoint:CGPointZero fromRect:rect];
-    //[context drawImage:result inRect:rect fromRect:rect];
-    
-    
-    //UIImage *image = [[UIImage alloc] initWithCIImage:result];
-    //self.imageView.image = image;
-    
+    // 设置界面
+    self.slider.value = 0.0;
+    self.slider2.minimumValue = -3.14;
+    self.slider2.maximumValue = 3.14;
+    self.slider2.value = 0.0;
+    self.slider3.minimumValue = -3.14;
+    self.slider3.maximumValue = 3.14;
+    self.slider3.value = 0.0;
+    self.imgV.image = [UIImage imageWithContentsOfFile:filePath];
     
 }
 
-- (NSMutableDictionary *)buildFilterDictionary: (NSArray *)names// 1
-{
-    NSMutableDictionary  *td, *catfilters;
-    NSDictionary         *attr;
-    NSString             *classname;
-    CIFilter             *filter;
-    int                   i;
-    
-    catfilters = [NSMutableDictionary dictionary];
-    
-    for(i=0 ; i<[names count] ; i++)// 2
-    {
-        classname = [names objectAtIndex: i];// 3
-        filter = [CIFilter filterWithName: classname];// 4
-        
-        if(filter)
-        {
-            attr = [filter attributes];// 5
-            
-            td   = [NSMutableDictionary dictionary];
-            [td setObject: classname forKey: @"class"];// 6
-            [catfilters setObject: td
-                           forKey:[attr objectForKey:@"CIAttributeFilterDisplayName"]];// 7
-        }
-        
-        else
-            NSLog(@" could not create '%@' filter", classname);
+- (void)logAllFilters {
+    NSArray *properties = [CIFilter filterNamesInCategory:
+                           kCICategoryBuiltIn];
+    NSLog(@"FilterName:\n%@", properties);
+    for (NSString *filterName in properties) {
+        CIFilter *fltr = [CIFilter filterWithName:filterName];
+        NSLog(@"%@:\n%@", filterName, [fltr attributes]);
     }
+}
+
+- (IBAction)changeValue:(id)sender 
+{
+    self.slider2.value = 0.0;
+    self.slider3.value = 0.0;
+    float slideValue = self.slider.value;
+    // 设置过滤器参数
+    [filter setValue:beginImage forKey:kCIInputImageKey];
+    [filter setValue:[NSNumber numberWithFloat:slideValue] forKey:@"inputIntensity"];
+
+    // 得到过滤后的图片
+    CIImage *outputImage = [filter outputImage];
     
-    return catfilters;
+    // 转换图片
+    CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    UIImage *newImg = [UIImage imageWithCGImage:cgimg];    
+    // 显示图片
+    [imgV setImage:newImg];
+    // 释放C对象
+    CGImageRelease(cgimg);
 
 }
 
+- (IBAction)changeValue2:(id)sender 
+{
+    self.slider.value = 0.0;
+    self.slider3.value = 0.0;
+    
+    float slideValue = self.slider2.value;
+    // 设置过滤器参数
+    [filter2 setValue:beginImage forKey:kCIInputImageKey];
+    [filter2 setValue:[NSNumber numberWithFloat:slideValue] forKey:@"inputAngle"];
+
+    // 得到过滤后的图片
+    CIImage *outputImage = [filter2 outputImage];
+    // 转换图片
+    CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    UIImage *newImg = [UIImage imageWithCGImage:cgimg];    
+    // 显示图片
+    [imgV setImage:newImg];
+    // 释放C对象
+    CGImageRelease(cgimg);
+}
+
+- (IBAction)changeValue3:(id)sender 
+{
+    self.slider.value = 0.0;
+    self.slider2.value = 0.0;
+    
+    float slideValue = self.slider3.value;
+    // 设置过滤器参数
+    [filter3 setValue:beginImage forKey:kCIInputImageKey];
+    [filter3 setValue:[NSNumber numberWithFloat:slideValue] forKey:@"inputAngle"];
+    
+    // 得到过滤后的图片
+    CIImage *outputImage = [filter3 outputImage];
+    // 转换图片
+    CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    UIImage *newImg = [UIImage imageWithCGImage:cgimg];    
+    // 显示图片
+    [imgV setImage:newImg];
+    // 释放C对象
+    CGImageRelease(cgimg);
+}
+
+- (IBAction)loadPhoto:(id)sender 
+{
+    UIImagePickerController *pickerC = 
+    [[UIImagePickerController alloc] init];
+    pickerC.delegate = self;
+    [self presentModalViewController:pickerC animated:YES];
+}
+
+- (IBAction)savePhoto:(id)sender 
+{
+    CIImage *saveToSave = [filter outputImage];
+    CGImageRef cgImg = [context createCGImage:saveToSave fromRect:[saveToSave extent]];
+    
+    ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
+    [library writeImageToSavedPhotosAlbum:cgImg 
+                                 metadata:[saveToSave properties] 
+                          completionBlock:^(NSURL *assetURL, NSError *error) {
+                              CGImageRelease(cgImg);
+                          }];
+}
+
+- (IBAction)resetImage:(id)sender 
+{
+    // 得到图片路径
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"png"];
+    
+    // 创建CIImage对象
+    NSURL *fileNameAndPath = [NSURL fileURLWithPath:filePath];
+    beginImage = [CIImage imageWithContentsOfURL:fileNameAndPath];
+    
+    // 设置界面
+    self.slider.value = 0.0;
+    self.slider2.value = 0.0;
+    self.slider3.value = 0.0;
+    self.imgV.image = [UIImage imageWithContentsOfFile:filePath];
+}
+
+#pragma mark UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info 
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+    UIImage *gotImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    beginImage = [CIImage imageWithCGImage:gotImage.CGImage];
+    imgV.image = gotImage;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker 
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+// 跳转至教学页面
+- (void)code
+{
+    CodeViewController *controller = [[CodeViewController alloc] initWithNibName:@"CodeViewController" bundle:nil];
+    NSString *name = [NSString stringWithUTF8String:object_getClassName(self)];
+    controller.className = name;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

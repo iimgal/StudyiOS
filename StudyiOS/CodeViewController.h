@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Three20/Three20.h"
 
 @interface CodeViewController : UIViewController
 
-@property (copy, nonatomic) NSString *className;
+@property (strong, nonatomic) NSString *className;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 
 @end

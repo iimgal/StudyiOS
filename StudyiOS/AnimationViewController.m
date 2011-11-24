@@ -17,15 +17,6 @@
 @synthesize greenView;
 @synthesize typeID;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -35,14 +26,6 @@
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -63,15 +46,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
-
+#pragma mark -
 #pragma mark Core Animation
 - (IBAction)buttonPressed1:(id)sender {
     UIButton *button = (UIButton *)sender;
@@ -173,7 +148,20 @@
     
 }
 
+#pragma mark CAAnimationDelegate
+// 动画开始时调用
+- (void)animationDidStart:(CAAnimation *)anim
+{
+    NSLog(@"animationDidStart");
+}
 
+// 动画结束时调用
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    NSLog(@"animationDidStop");
+}
+
+#pragma mark -
 #pragma mark UIView动画
 - (IBAction)buttonPressed2:(id)sender {
     UIButton *button = (UIButton *)sender;
@@ -222,7 +210,7 @@
 // 跳转至教学页面
 - (void)code
 {
-    CodeViewController *controller = [[CodeViewController alloc] init];
+    CodeViewController *controller = [[CodeViewController alloc] initWithNibName:@"CodeViewController" bundle:nil];
     NSString *name = [NSString stringWithUTF8String:object_getClassName(self)];
     controller.className = name;
     

@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Three20/Three20+Additions.h"
 
 
-@interface ScrollViewController : TTViewController <TTScrollViewDataSource, TTScrollViewDelegate>
+@interface ScrollViewController : UIViewController <UIScrollViewDelegate>
 
-@property (strong, nonatomic) IBOutlet TTScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet TTPageControl *pageControl;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end

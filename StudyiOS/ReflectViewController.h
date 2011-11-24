@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIImageView *reflectView;
+@property (strong, nonatomic) IBOutlet UIImageView *roundView;
+
 @property (nonatomic, strong) IBOutlet UISlider *alphaSlider;
 @property (nonatomic, strong) IBOutlet UISlider *heightSlider;
 

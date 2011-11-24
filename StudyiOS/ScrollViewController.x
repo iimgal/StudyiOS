@@ -1,15 +1,20 @@
-<span class = "brown">#import</span> <span class = "red">"Three20/Three20+Additions.h"</span>
-<span class = "green">TTScrollViewDataSource,TTScrollViewDelegate</span>
-<span class = "green">// 创建滑动视图</span>
-<span class = "cyan">scrollView</span>= [[<span class = "cyan">TTScrollView</span> <span class = "purple">alloc</span>] <span class = "purple">initWithFrame:CGRectMake</span>(0,0, width, height];
-<span class = "green">// 设置委托</span>
-<span class = "cyan">scrollView.dataSource</span>= <span class = "magenta">self</span>;
-<span class = "cyan">scrollView.delegate</span> = <span class = "magenta">self</span>;
-<span class = "green">// 创建页面控制器</span>
-<span class = "cyan">pageControl</span>= [[<span class = "purple">TTPageControl</span> <span class = "purple">alloc</span>] <span class = "purple">initWithFrame:CGRectMake</span>(0,380, width, 20)];
-<span class = "green">// 需实现以下委托方法</span>
-- (<span class = "purple">NSInteger</span>)numberOfPagesInScrollView:(<span class = "cyan">TTScrollView</span>*)scrollView;
-- (<span class = "purple">UIView</span>*)scrollView:(<span class = "cyan">TTScrollView</span>*)scrollView pageAtIndex:(<span class = "purple">NSInteger</span>)pageIndex;
-- (<span class = "purple">CGSize</span>)scrollView:(<span class = "cyan">TTScrollView</span>*)scrollView sizeOfPageAtIndex:(<span class = "purple">NSInteger</span>)pageIndex;
-- (<span class = "magenta">void</span>)scrollView:(<span class = "cyan">TTScrollView</span>*)scrollView didMoveToPageAtIndex:(<span class = "purple">NSInteger</span>)pageIndex;
-    
+// 是否按页滚动
+    self.scrollView.pagingEnabled = YES;
+    // 背景色
+    self.scrollView.backgroundColor = [UIColor blackColor];
+    // 滚动条颜色 因为背景为黑,所以用白色
+    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    // 隐藏水平滚动条
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.canCancelContentTouches = NO;
+    self.scrollView.clipsToBounds = YES;
+    // 设置委托
+    self.scrollView.delegate = self;
+    // 添加子视图
+    [self.scrollView addSubview:imageView];
+    // 修改子视图位置
+    CGRect frame = imageView.frame;
+    frame.origin = CGPointMake(width*i, 0);
+    imageView.frame = frame;
+    // 设置ScrollView大小
+    self.scrollView.contentSize = CGSizeMake(width*[array count], scrollView.bounds.size.height);

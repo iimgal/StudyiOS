@@ -7,7 +7,8 @@
 //
 
 #import "ReflectViewController.h"
-#import "IIReflectionImage.h"
+#import "IIImage.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kReflectAlpha   0.8 // 映射图片透明度
 #define kReflectHeight  1.0 // 映射图片高度
@@ -16,6 +17,7 @@
 
 @synthesize imageView;
 @synthesize reflectView;
+@synthesize roundView;
 @synthesize alphaSlider;
 @synthesize heightSlider;
 
@@ -38,16 +40,29 @@
 }
 
 #pragma mark - View lifecycle
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        NSLog(@"initWithCoder");
+    }
+    return self;
+}
+
 - (void)loadView
 {
+    [super loadView];
 }
-*/
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     // 增加Code按钮，可跳转至教学页面
@@ -61,7 +76,16 @@
     // 设置映射比例
     NSUInteger height = self.imageView.bounds.size.height * kReflectHeight;
     // 得到映射图片
-    self.reflectView.image = [IIReflectionImage reflectedImage:self.imageView withHeight:height];
+    self.reflectView.image = [IIImage reflectedImage:self.imageView withHeight:height];
+    
+    // 圆角图片
+    //self.roundView.image = [IIImage createRoundedRectImage:self.imageView.image size:self.imageView.image.size];
+    
+    self.roundView.image = self.imageView.image;
+    // 设置边框得圆弧度
+    self.roundView.layer.cornerRadius = 10;  
+    self.roundView.layer.masksToBounds = YES;
+    //self.roundView.layer.borderWidth = 15; // 设置这个圆形边框得宽度
     
     [super viewDidLoad];
 
@@ -75,9 +99,8 @@
     self.alphaSlider = nil;
     self.heightSlider = nil;
     
+    [self setRoundView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
@@ -87,14 +110,14 @@
 
 - (IBAction)heightSliderChanged {
     NSUInteger height = self.imageView.bounds.size.height*self.heightSlider.value;
-    self.reflectView.image = [IIReflectionImage reflectedImage:self.imageView withHeight:height];
+    self.reflectView.image = [IIImage reflectedImage:self.imageView withHeight:height];
     
 }
 
 // 跳转至教学页面
 - (void)code
 {
-    CodeViewController *controller = [[CodeViewController alloc] init];
+    CodeViewController *controller = [[CodeViewController alloc] initWithNibName:@"CodeViewController" bundle:nil];
     NSString *name = [NSString stringWithUTF8String:object_getClassName(self)];
     controller.className = name;
     
