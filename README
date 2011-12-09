@@ -1,0 +1,36 @@
+1.1已更新,你将能在应用中找到以下功能及实现方法: 
+系统功能: 
+地址薄:地址薄的查看,新增,修改,导入. 关键字:AddressBook,AddressBookUI 
+摄像头:拍照,查看相册,获取照片信息. 关键字:UIImagePickerController 
+加速计:获得各个方向的重力加速度.(需真机测试) 关键字:UIAccelerometer 
+
+网络连接: 
+测试网络连接:测试网络是否连接,连接类型,某网址是否可达. 关键字:Reachability 
+HTTP请求:同步请求,异步请求,队列请求,上传,网页请求. 关键字:ASIHTTPRequest 
+Socket连接:Socket服务器创建,客户端连接及通信. 关键字:AsyncSocket 
+
+文件解析: 
+XML解析:网络XML读取,本地XML读取,本地XML写入. 关键字:GDataXML 
+JSON解析:JSON文件解析. 关键字:SBJSON 
+HTML解析:HTML文件解析. 关键字:TFHpple 
+
+多媒体: 
+音频播放:音频文件播放(支持后台播放). 关键字:AVFoundation 
+视频播放:视频文件播放. 关键字:MediaPlayer 
+
+UI设计: 
+横向滑动:视图随手指横向滑动及翻页. 关键字:UIScrollView 
+下拉刷新:表格下拉到一定程度释放后刷新. 关键字:EGORefreshTableHeaderView 
+无遮键盘:键盘出现时不会挡住文本框里的字. 关键字:UIKeyboardWillShowNotification 
+异步图片:异步加载图片. 关键字:AsyncImageView 
+广告栏:如何在应用里加入广告. 关键字:ADBannerView 
+加载框:各种加载框效果. 关键字:MBProgressHuD 
+
+高级功能: 
+动画效果:16种视图切换动画效果. 关键字:Core Animation 
+图片映射:模仿Mac任务栏的图标映射效果. 关键字:IIImage(自定义) 
+图片渲染:iOS新特性,多种图片渲染效果. 关键字:Core Image 
+Path菜单:Path应用中大受好评的菜单展开效果 
+
+其它: 
+传值方法:总结编码中的4种跨控制器传值方法. 关键字:全局变量,单例模式,Delegate,Notification

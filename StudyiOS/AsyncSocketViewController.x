@@ -22,3 +22,6 @@ _client = [[AsyncSocket alloc] initWithDelegate:self];
     // 本函数被调用过之后这个读取请求就结束了,我们不想让它结束掉, 所以在函数结尾处加入, 这样读取过程就可以一直持继下去了
     [_client readDataWithTimeout:-1 tag:0];
 }
+
+// 带SSL的Socket
+[sock startTLS:settings];

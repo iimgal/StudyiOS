@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDWebImageManagerDelegate.h"
+#import "SDWebImageDownloaderDelegate.h"
 
-@interface ImageTableViewController : UITableViewController
+@interface ImageTableViewController : UITableViewController <SDWebImageManagerDelegate, SDWebImageDownloaderDelegate>
 
 @property (strong, nonatomic) NSArray *list;
 

@@ -42,6 +42,8 @@
     theMovie.view.frame = viewInsetRect;
     [self.view addSubview:theMovie.view];
     
+    //theMovie.controlStyle = MPMovieControlStyleFullscreen;
+    
     self.view.backgroundColor = [UIColor blackColor];
     // 开始播放
     [theMovie play];

@@ -13,4 +13,12 @@ if([request error]) {
     // 得到返回信息
     [showText setText:[request responseString]];
 }
-    
+
+// 带SSL访问HTTPS
+// The first object in the array is our SecIdentityRef
+[certificates addObject:(id)clientCertificateIdentity];
+
+// If we've added any additional certificates, add them too
+for (id cert in clientCertificates) {
+    [certificates addObject:cert];
+}

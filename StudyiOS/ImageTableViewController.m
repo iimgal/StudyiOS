@@ -7,7 +7,10 @@
 //
 
 #import "ImageTableViewController.h"
-#import "AsyncImageView.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
+#import "SDWebImageDownloader.h"
+#import "SDImageCache.h"
 
 @implementation ImageTableViewController
 @synthesize  list;
@@ -70,21 +73,57 @@
     NSString *imgurl = [self.list objectAtIndex:row];
     NSURL *url = [NSURL URLWithString:imgurl];
          
-    AsyncImageView *oldImg = (AsyncImageView *)[cell.contentView viewWithTag:999];
-    [oldImg removeFromSuperview];
-         
-    CGRect frame = CGRectMake(0, 0, 44, 44);
-    // 创建异步图片视图
-    AsyncImageView* asyncImage = [[AsyncImageView alloc] initWithFrame:frame];    
-    asyncImage.tag =999;  
-    // 加载异步图片
-    [asyncImage loadImageFromURL:url];    
-    [cell.contentView addSubview:asyncImage];    
-       
-    NSLog(@"图片地址：%@",imgurl);
+    [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"hold.png"]];
+    cell.textLabel.text = @"My Text";
     
     return cell;
 }
+
+- (void)useSDWebImageManager
+{
+    NSString *path = @"http://face.weiphone.com/data/avatar/002/29/85/69_avatar_middle.jpg";
+    NSURL *url = [NSURL URLWithString:path];
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    UIImage *cachedImage = [manager imageWithURL:url];
+    if (cachedImage) {
+        // Use the cached image immediatly 
+    } else {
+        // Start an async download
+        [manager downloadWithURL:url delegate:self];
+    }
+}
+
+- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
+{
+    // Do something with the downloaded image
+}
+
+// 独立的异步图像下载
+- (void)useSDWebImageDownloader
+{
+    NSString *path = @"http://face.weiphone.com/data/avatar/002/29/85/69_avatar_middle.jpg";
+    NSURL *url = [NSURL URLWithString:path];
+    
+    SDWebImageDownloader *downloader = [SDWebImageDownloader downloaderWithURL:url delegate:self];
+}
+
+- (void)imageDownloader:(SDWebImageDownloader *)downloader didFinishWithImage:(UIImage *)image
+{
+    
+}
+
+// 独立的异步图像缓存
+- (void)useSDImageCache
+{
+    // 寻找当前缓存
+    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromKey:@"imgal1"];
+    // 存储一个图像到缓存
+    [[SDImageCache sharedImageCache] storeImage:myCachedImage forKey:@"imgal1"];
+    // 默认情况下，图像将被存储在内存缓存和磁盘缓存中。如果仅仅是想内存缓存中，要使用
+    [[SDImageCache sharedImageCache] storeImage:myCachedImage forKey:@"imgal1" toDisk:NO];
+}
+
 
 // 跳转至教学页面
 - (void)code
