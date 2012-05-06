@@ -40,6 +40,7 @@
 		18501BEF1446A92A001BB9D7 /* AccelerometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18501BEE1446A92A001BB9D7 /* AccelerometerViewController.m */; };
 		18501BF51446A9F2001BB9D7 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18501BF21446A9F2001BB9D7 /* AccelerometerFilter.m */; };
 		18501BF61446A9F2001BB9D7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18501BF41446A9F2001BB9D7 /* GraphView.m */; };
+		185438CB15481EFE006FA8BA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185438CA15481EFE006FA8BA /* MasterViewController.m */; };
 		187B90981443E9B60063F0D2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187B90971443E9B60063F0D2 /* CoreImage.framework */; };
 		187B909A1443F51E0063F0D2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187B90991443F51E0063F0D2 /* OpenGLES.framework */; };
 		1887C1A8145D9518004CED40 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887C1A7145D9518004CED40 /* ScrollViewController.m */; };
@@ -231,6 +232,8 @@
 		18501BF21446A9F2001BB9D7 /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
 		18501BF31446A9F2001BB9D7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		18501BF41446A9F2001BB9D7 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		185438C915481EFE006FA8BA /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		185438CA15481EFE006FA8BA /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		187B90971443E9B60063F0D2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		187B90991443F51E0063F0D2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1887C1A6145D9517004CED40 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 				181B5007143D7C0F0019D100 /* MainStoryboard.storyboard */,
 				181B5004143D7C0F0019D100 /* AppDelegate.h */,
 				181B5005143D7C0F0019D100 /* AppDelegate.m */,
+				185438C915481EFE006FA8BA /* MasterViewController.h */,
+				185438CA15481EFE006FA8BA /* MasterViewController.m */,
 				18AB5C5B145CFBAF00F9A7A6 /* CodeViewController.h */,
 				18AB5C5C145CFBAF00F9A7A6 /* CodeViewController.m */,
 				1842AE22147CF2EA00ED05B9 /* CodeViewController.xib */,
@@ -1195,6 +1200,7 @@
 				18A35BA4148D14A100F40F77 /* PathViewController.m in Sources */,
 				18A35BCC148D150B00F40F77 /* QuadCurveMenu.m in Sources */,
 				18A35BCD148D150B00F40F77 /* QuadCurveMenuItem.m in Sources */,
+				185438CB15481EFE006FA8BA /* MasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1293,7 +1299,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F40FB97A-024D-4BDB-AC4C-3F5E855C5623";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B3580F3-FC53-4F48-BE0C-957D274BB8D6";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
