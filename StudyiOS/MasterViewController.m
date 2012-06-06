@@ -53,7 +53,7 @@
                       NSLocalizedString(@"Scroll", nil), 
                       NSLocalizedString(@"PullRefresh", nil), 
                       NSLocalizedString(@"AsyncImage", nil), 
-                      NSLocalizedString(@"Keyboared", nil), 
+                      NSLocalizedString(@"Keyboard", nil), 
                       NSLocalizedString(@"Banner", nil), 
                       NSLocalizedString(@"Progress", nil), 
                       nil];

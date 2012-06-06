@@ -1232,7 +1232,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHEN YAO (BF763RBEB5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1249,6 +1249,7 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7F96DFB5-5C35-437C-96EE-7C285DBD02FE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1279,6 +1280,7 @@
 		181B502C143D7C0F0019D100 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHEN YAO (BF763RBEB5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHEN YAO (BF763RBEB5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1299,7 +1301,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B3580F3-FC53-4F48-BE0C-957D274BB8D6";
+				PROVISIONING_PROFILE = "7F96DFB5-5C35-437C-96EE-7C285DBD02FE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7F96DFB5-5C35-437C-96EE-7C285DBD02FE";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1308,7 +1311,8 @@
 		181B502D143D7C0F0019D100 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHEN YAO (BF763RBEB5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHEN YAO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHEN YAO";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/StudyiOS\"",
@@ -1328,7 +1332,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2859CBDC-AA91-4337-AD0F-C2FF240273AA";
+				PROVISIONING_PROFILE = "89B434E8-5744-4D2B-B1E5-5E99A70EF7F4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89B434E8-5744-4D2B-B1E5-5E99A70EF7F4";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

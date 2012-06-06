@@ -190,7 +190,7 @@
 - (IBAction)resetImage:(id)sender 
 {
     // 得到图片路径
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"png"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"girl" ofType:@"png"];
     
     // 创建CIImage对象
     NSURL *fileNameAndPath = [NSURL fileURLWithPath:filePath];

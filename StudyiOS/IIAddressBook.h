@@ -1,5 +1,5 @@
 //
-//  AddressBookUtils.h
+//  IIAddressBook.h
 //  StudyiOS
 //  提供解析通讯录数据的一系列方法
 //  源自皮皮彭的代码 http://www.cocoachina.com/bbs/read.php?tid-20938.html
