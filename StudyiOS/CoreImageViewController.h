@@ -10,14 +10,12 @@
 
 @interface CoreImageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *imgV;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UISlider *slider2;
-@property (strong, nonatomic) IBOutlet UISlider *slider3;
 
 - (IBAction)changeValue:(id)sender;
 - (IBAction)changeValue2:(id)sender;
-- (IBAction)changeValue3:(id)sender;
 
 - (IBAction)loadPhoto:(id)sender;
 - (IBAction)savePhoto:(id)sender;

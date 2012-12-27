@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #d12f1b}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #703daa}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px STSong; color: #008400}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #3d1d81}
+    span.s1 {color: #78492a}
+    span.s2 {font: 14.0px STSong}
+    span.s3 {color: #000000}
+    span.s4 {color: #3d1d81}
+    span.s5 {font: 14.0px Menlo}
+    span.s6 {color: #703daa}
+    span.s7 {color: #d12f1b}
+    span.s8 {color: #bb2ca2}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">#import </span>&lt;Social/Social.h&gt;</p>
+<p class="p2">// <span class="s2">初始化</span><span class="Apple-converted-space"> </span></p>
+<p class="p2">// SLServiceTypeFacebook; SLServiceTypeSinaWeibo; SLServiceTypeTwitter</p>
+<p class="p3">SLComposeViewController<span class="s3"> *sl = [</span>SLComposeViewController<span class="s3"> </span><span class="s4">composeViewControllerForServiceType</span><span class="s3">:type];</span></p>
+<p class="p4"><span class="s5">// </span>设置文本</p>
+<p class="p1"><span class="s3">[sl </span><span class="s4">setInitialText</span><span class="s3">:</span>@"Hello World!"<span class="s3">];</span></p>
+<p class="p4"><span class="s5">// </span>设置图片</p>
+<p class="p5"><span class="s3">[sl </span>addImage<span class="s3">:[</span><span class="s6">UIImage</span><span class="s3"> </span>imageNamed<span class="s3">:</span><span class="s7">@"ios6.jpg"</span><span class="s3">]];</span></p>
+<p class="p2">// <span class="s2">设置</span>URL</p>
+<p class="p1"><span class="s3">[sl </span><span class="s4">addURL</span><span class="s3">:[</span><span class="s6">NSURL</span><span class="s3"> </span><span class="s4">URLWithString</span><span class="s3">:</span>@"http://www.twitter.com/"<span class="s3">]];</span></p>
+<p class="p2">// <span class="s2">显示</span></p>
+<p class="p5"><span class="s3">[</span><span class="s8">self</span><span class="s3"> sl </span>animated<span class="s3">:</span><span class="s8">YES</span><span class="s3"> </span>completion<span class="s3">:</span><span class="s8">nil</span><span class="s3">];</span></p>
+<p class="p4"><span class="s5">// </span>设置回调</p>
+<p class="p3"><span class="s3">[sl </span><span class="s4">setCompletionHandler</span><span class="s3">:^(</span>SLComposeViewControllerResult<span class="s3"> result) {}</span></p>
+</body>
+</html>

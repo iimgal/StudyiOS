@@ -60,8 +60,8 @@
     NSArray *list6 = [NSArray arrayWithObjects:
                       NSLocalizedString(@"Animation", nil), 
                       NSLocalizedString(@"Reflect", nil), 
-                      NSLocalizedString(@"CoreImage", nil), 
-                      NSLocalizedString(@"Path", nil), 
+//                      NSLocalizedString(@"CoreImage", nil), 
+                      NSLocalizedString(@"Path", nil),
                       nil];
     NSArray *list7 = [NSArray arrayWithObjects:
                       NSLocalizedString(@"Notification", nil), 

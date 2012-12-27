@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px STSong; color: #008400}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #703daa}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; min-height: 16.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #3d1d81}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #78492a}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400; min-height: 16.0px}
+    span.s1 {font: 14.0px Menlo}
+    span.s2 {color: #000000}
+    span.s3 {color: #bb2ca2}
+    span.s4 {color: #4f8187}
+    span.s5 {color: #703daa}
+    span.s6 {color: #d12f1b}
+    span.s7 {font: 14.0px STSong}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">// </span>需要实现以下接口</p>
+<p class="p2"><span class="s2">&lt;</span>UICollectionViewDataSource<span class="s2">, </span>UICollectionViewDelegateFlowLayout<span class="s2">&gt;</span></p>
+<p class="p3"><br></p>
+<p class="p1"><span class="s1">// </span>注册可重用视图</p>
+<p class="p4"><span class="s2">[</span><span class="s3">self</span><span class="s2">.</span><span class="s4">collectionView</span><span class="s2"> </span>registerClass<span class="s2">:[</span><span class="s5">UICollectionViewCell</span><span class="s2"> </span>class<span class="s2">] </span>forCellWithReuseIdentifier<span class="s2">:</span><span class="s6">@"cell"</span><span class="s2">];</span></p>
+<p class="p4"><span class="s2">[</span><span class="s3">self</span><span class="s2">.</span><span class="s4">collectionView</span><span class="s2"> </span>registerClass<span class="s2">:[</span><span class="s4">CollectionHeadView</span><span class="s2"> </span>class<span class="s2">] </span>forSupplementaryViewOfKind<span class="s2">:</span><span class="s5">UICollectionElementKindSectionHeader</span><span class="s2"> </span>withReuseIdentifier<span class="s2">:</span><span class="s6">@"head"</span><span class="s2">];</span></p>
+<p class="p3"><br></p>
+<p class="p5">#pragma mark - UICollectionViewDataSource</p>
+<p class="p6">// <span class="s7">返回</span>section<span class="s7">的数量</span></p>
+<p class="p7">- (<span class="s5">NSInteger</span>)numberOfSectionsInCollectionView:(<span class="s5">UICollectionView</span> *)collectionView</p>
+<p class="p3"><br></p>
+<p class="p6">// <span class="s7">返回在一个给定</span>section<span class="s7">里的</span>cell<span class="s7">数量</span></p>
+<p class="p7">- (<span class="s5">NSInteger</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView numberOfItemsInSection:(<span class="s5">NSInteger</span>)section</p>
+<p class="p3"><br></p>
+<p class="p6">// <span class="s7">返回在某个</span>cell<span class="s7">。与</span>table view<span class="s7">的</span>cell<span class="s7">类似</span></p>
+<p class="p7">- (<span class="s5">UICollectionViewCell</span> *)collectionView:(<span class="s5">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="s5">NSIndexPath</span> *)indexPath</p>
+<p class="p8"><br></p>
+<p class="p6">// <span class="s7">系统的</span>UICollectionViewCell<span class="s7">只能改变背景图</span>,<span class="s7">你应该自定义一个</span>class<span class="s7">继承</span>UICollectionViewCell</p>
+<p class="p4"><span class="s5">UICollectionViewCell</span><span class="s2"> *cell = [collectionView </span>dequeueReusableCellWithReuseIdentifier<span class="s2">:</span><span class="s6">@"cell"</span><span class="s2"> </span>forIndexPath<span class="s2">:indexPath];</span></p>
+<p class="p3"><br></p>
+<p class="p6">// <span class="s7">返回</span>headview<span class="s7">或</span>footview</p>
+<p class="p7">- (<span class="s5">UICollectionReusableView</span> *)collectionView:(<span class="s5">UICollectionView</span> *)collectionView viewForSupplementaryElementOfKind:(<span class="s5">NSString</span> *)kind atIndexPath:(<span class="s5">NSIndexPath</span> *)indexPath</p>
+<p class="p3"><br></p>
+<p class="p5">#pragma mark - UICollectionViewDelegate</p>
+<p class="p6">// <span class="s7">选中某个</span>cell</p>
+<p class="p7">- (<span class="s3">void</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView didSelectItemAtIndexPath:(<span class="s5">NSIndexPath</span> *)indexPath</p>
+<p class="p3"><br></p>
+<p class="p5">#pragma mark - UICollectionViewDelegateFlowLayout</p>
+<p class="p6">// <span class="s7">定义</span>cell<span class="s7">的</span>size</p>
+<p class="p7">- (<span class="s5">CGSize</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView layout:(<span class="s5">UICollectionViewLayout</span> *)collectionViewLayout sizeForItemAtIndexPath:(<span class="s5">NSIndexPath</span> *)indexPath</p>
+<p class="p3"><br></p>
+<p class="p6">// <span class="s7">定义</span>section<span class="s7">的边距</span></p>
+<p class="p7">- (<span class="s5">UIEdgeInsets</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView layout:(<span class="s5">UICollectionViewLayout</span> *)collectionViewLayout insetForSectionAtIndex:(<span class="s5">NSInteger</span>)section</p>
+<p class="p3"><br></p>
+<p class="p6">// <span class="s7">定义</span>headview<span class="s7">的</span>size</p>
+<p class="p7">- (<span class="s5">CGSize</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView layout:(<span class="s5">UICollectionViewLayout</span>*)collectionViewLayout referenceSizeForHeaderInSection:(<span class="s5">NSInteger</span>)section</p>
+<p class="p3"><br></p>
+<p class="p1"><span class="s1">// </span>定义上下<span class="s1">cell</span>的最小间距</p>
+<p class="p7">- (<span class="s5">CGFloat</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView layout:(<span class="s5">UICollectionViewLayout</span>*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(<span class="s5">NSInteger</span>)section</p>
+<p class="p3"><br></p>
+<p class="p1"><span class="s1">// </span>定义左右<span class="s1">cell</span>的最小间距</p>
+<p class="p7">- (<span class="s5">CGFloat</span>)collectionView:(<span class="s5">UICollectionView</span> *)collectionView layout:(<span class="s5">UICollectionViewLayout</span>*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(<span class="s5">NSInteger</span>)section</p>
+</body>
+</html>

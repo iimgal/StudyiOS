@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #d12f1b}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #78492a}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'; color: #008400; min-height: 14.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #3d1d81}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #703daa}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; min-height: 16.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'; color: #008400}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'}
+    span.s1 {color: #78492a}
+    span.s2 {color: #272ad8}
+    span.s3 {color: #008400}
+    span.s4 {font: 14.0px 'Heiti SC Light'; color: #008400}
+    span.s5 {color: #bb2ca2}
+    span.s6 {color: #000000}
+    span.s7 {color: #4f8187}
+    span.s8 {color: #703daa}
+    span.s9 {font: 14.0px Menlo}
+    span.s10 {color: #3d1d81}
+    span.s11 {color: #d12f1b}
+    span.s12 {font: 14.0px 'Heiti SC Light'}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">#import </span>&lt;MapKit/MapKit.h&gt;</p>
+<p class="p2">#define KILOMETER <span class="s2">1000.0</span> <span class="s3">// 1</span><span class="s4">公里</span></p>
+<p class="p3"><br></p>
+<p class="p4"><span class="s5">self</span><span class="s6">.</span><span class="s7">mapView</span><span class="s6">.</span><span class="s8">mapType</span><span class="s6"> = </span>MKMapTypeStandard<span class="s6">; </span><span class="s3">// </span><span class="s4">地图显示模式</span></p>
+<p class="p5"><span class="s5">self</span><span class="s6">.</span><span class="s7">mapView</span><span class="s6">.</span>showsUserLocation<span class="s6"> = </span><span class="s5">YES</span><span class="s6">; </span><span class="s3">// </span><span class="s4">是否显示用户位置</span></p>
+<p class="p5"><span class="s5">self</span><span class="s6">.</span><span class="s7">mapView</span><span class="s6">.</span>delegate<span class="s6"> = </span><span class="s5">self</span><span class="s6">;</span></p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s9">// </span>设置大头针</p>
+<p class="p5">MKPointAnnotation<span class="s6">* pointAnnotation = [[</span>MKPointAnnotation<span class="s6"> </span><span class="s10">alloc</span><span class="s6">] </span><span class="s10">init</span><span class="s6">];</span></p>
+<p class="p8">pointAnnotation.<span class="s8">coordinate</span> = touchMapCoordinate;</p>
+<p class="p8">pointAnnotation.<span class="s8">title</span> = <span class="s11">@"Go Here!"</span>;</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s9">// </span>加入大头针</p>
+<p class="p8">[<span class="s5">self</span>.<span class="s7">mapView</span> <span class="s10">addAnnotation</span>:pointAnnotation];</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s9">// </span>显示大头针,实现此代理方法</p>
+<p class="p8">- (<span class="s8">MKAnnotationView</span> *)mapView:(<span class="s8">MKMapView</span> *)theMapView viewForAnnotation:(<span class="s5">id</span> &lt;<span class="s8">MKAnnotation</span>&gt;)annotation;</p>
+<p class="p6"><br></p>
+<p class="p9">// <span class="s12">启动</span>AppleMap,<span class="s12">显示路线图</span></p>
+<p class="p7"><span class="s9">// </span>设置位置信息</p>
+<p class="p4"><span class="s8">MKPlacemark</span><span class="s6"> *placemark = [[</span><span class="s8">MKPlacemark</span><span class="s6"> </span>alloc<span class="s6">] </span>initWithCoordinate<span class="s6">:[view.</span><span class="s8">annotation</span><span class="s6"> </span>coordinate<span class="s6">] </span>addressDictionary<span class="s6">:</span><span class="s5">nil</span><span class="s6">];</span></p>
+<p class="p8"><span class="s8">MKMapItem</span>* sfStore = [[<span class="s8">MKMapItem</span> <span class="s10">alloc</span>] <span class="s10">initWithPlacemark</span>:placemark];</p>
+<p class="p6"><span class="Apple-converted-space">    </span></p>
+<p class="p7"><span class="s9">// </span>交通工具为开车</p>
+<p class="p5">NSDictionary<span class="s6"> *launchOptions = </span><span class="s2">@{</span>MKLaunchOptionsDirectionsModeKey<span class="s6"> : </span>MKLaunchOptionsDirectionsModeDriving<span class="s2">}</span><span class="s6">;</span></p>
+<p class="p6"><span class="Apple-converted-space">    </span></p>
+<p class="p9">// <span class="s12">启动</span>AppleMap</p>
+<p class="p4"><span class="s6">[sfStore </span>openInMapsWithLaunchOptions<span class="s6">:launchOptions];</span></p>
+<p class="p6"><br></p>
+<p class="p10">PS<span class="s9">:</span>本来想利用新API在程序内打开AppleMap显示路线图<span class="s9">,</span>结果发现并不像拍照API一样可以回到自己的程序,而是有去无回,略坑爹呀…</p>
+</body>
+</html>

@@ -111,7 +111,7 @@
     // 设置请求URL
 	request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://allseeing-i.com/ASIHTTPRequest/tests/images/small-image.jpg"]];
     // 设置下载的目标路径
-	[request setDownloadDestinationPath:[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"1.png"]];
+	[request setDownloadDestinationPath:[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"girl.png"]];
     // 设置进度条
 	[request setDownloadProgressDelegate:imageProgressIndicator1];
     // 自定义用户信息

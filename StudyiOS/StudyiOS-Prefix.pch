@@ -13,4 +13,6 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "CodeViewController.h"
+    #import "DemoCodeViewController.h"
+
 #endif

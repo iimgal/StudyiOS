@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #d12f1b}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #d12f1b; min-height: 16.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'; color: #d12f1b}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; min-height: 16.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'; color: #008400}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #31595d}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Heiti SC Light'}
+    span.s1 {color: #78492a}
+    span.s2 {font: 14.0px 'Heiti SC Light'}
+    span.s3 {font: 14.0px Menlo; color: #000000}
+    span.s4 {font: 14.0px Menlo; color: #4f8187}
+    span.s5 {font: 14.0px Menlo; color: #31595d}
+    span.s6 {font: 14.0px Menlo}
+    span.s7 {color: #703daa}
+    span.s8 {color: #000000}
+    span.s9 {color: #272ad8}
+    span.s10 {color: #4f8187}
+    span.s11 {color: #d12f1b}
+    span.s12 {color: #bb2ca2}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">#import </span>&lt;PassSlot/PassSlot.h&gt;</p>
+<p class="p2"><br></p>
+<p class="p3">// <span class="s2">填写</span>Passslot<span class="s2">的</span>APPID</p>
+<p class="p4"><span class="s3">[</span><span class="s4">PassSlot</span><span class="s3"> </span><span class="s5">start</span><span class="s3">:</span><span class="s6">@"</span>xxxxxxxxxxxxxxxxxxxxxxx<span class="s6">"</span><span class="s3">];</span></p>
+<p class="p5"><br></p>
+<p class="p3">// <span class="s2">定制你的</span>Pass</p>
+<p class="p1"><span class="s7">NSDictionary</span><span class="s8"> *values = </span><span class="s9">@{</span>@"label"<span class="s8">: </span>@"<span class="s2">这是一个</span>"<span class="s8">, </span>@"value"<span class="s8">: </span>@"<span class="s2">测试程序</span>"<span class="s9">}</span><span class="s8">;</span></p>
+<p class="p5"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="s6">// </span>使用模板创建一个新的<span class="s6">PASS</span></p>
+<p class="p7"><span class="s8">[</span><span class="s10">PassSlot</span><span class="s8"> </span>createPassFromTemplateWithName<span class="s8">:</span><span class="s11">@"coupon"</span><span class="s8"> </span>withValues<span class="s8">:values </span>andRequestInstallation<span class="s8">:</span><span class="s12">self</span><span class="s8"> </span>completion<span class="s8">:^{}];</span></p>
+<p class="p5"><br></p>
+<p class="p8">PS<span class="s6">:</span>由于Passbook的创建和操作主要在服务器端,比较复杂,这里使用了一个第三方库PassSlot以简化对Passbook的操作</p>
+<p class="p8">关于PassSlot请看<a href="https://www.passslot.com/">https://www.passslot.com/</a></p>
+<p class="p8">想对Passbook进行更深入研究的请看<a href="http://www.devdiv.com/iOS_iPhone-iOS6%E6%96%B0%E7%89%B9%E5%BE%81%EF%BC%9A%E5%88%9D%E8%AF%86PassKit-thread-129214-1-1.html">http://www.devdiv.com/iOS_iPhone-iOS6%E6%96%B0%E7%89%B9%E5%BE%81%EF%BC%9A%E5%88%9D%E8%AF%86PassKit-thread-129214-1-1.html</a>及苹果官方API</p>
+</body>
+</html>

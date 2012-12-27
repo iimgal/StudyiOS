@@ -1,4 +1,16 @@
-1.1已更新,你将能在应用中找到以下功能及实现方法: 
+Version1.5:增加iOS6专题
+以后更新会以专题形式,着重介绍大家感兴趣的知识点.
+接下来计划做iOS5专题,动画专题和网络专题.
+
+iOS6:
+系统集成社交框架 Social Framework
+系统下拉刷新控件 UIRefreshControl
+系统交互控件 UIActivityViewController
+瀑布流控件 UICollectionView
+官方地图新功能 MKMapItem
+电子钱包 PassBook
+
+原Demo:
 系统功能: 
 地址薄:地址薄的查看,新增,修改,导入. 关键字:AddressBook,AddressBookUI 
 摄像头:拍照,查看相册,获取照片信息. 关键字:UIImagePickerController 

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #008400}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #703daa}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; min-height: 16.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #3d1d81}
+    span.s1 {font: 14.0px 'Heiti SC Light'}
+    span.s2 {color: #000000}
+    span.s3 {color: #3d1d81}
+    span.s4 {color: #bb2ca2}
+    span.s5 {color: #703daa}
+  </style>
+</head>
+<body>
+<p class="p1">// <span class="s1">初始化一个</span>UIActivityViewController</p>
+<p class="p2">UIActivityViewController<span class="s2"> *activityVC = [[</span>UIActivityViewController<span class="s2"> </span><span class="s3">alloc</span><span class="s2">]</span><span class="s3">initWithActivityItems</span><span class="s2">:activityItems </span><span class="s3">applicationActivities</span><span class="s2">:</span><span class="s4">Nil</span><span class="s2">];</span></p>
+<p class="p3"><br></p>
+<p class="p1">// <span class="s1">初始化</span>completionHandler<span class="s1">，当</span>post<span class="s1">结束之后（无论是</span>done<span class="s1">还是</span>cancell<span class="s1">）该</span>blog<span class="s1">都会被调用</span></p>
+<p class="p4">activityVC.<span class="s5">completionHandler</span> = ^(<span class="s5">NSString</span> *activityType, <span class="s4">BOOL</span> completed) {};</p>
+<p class="p3"><span class="Apple-converted-space">    </span></p>
+<p class="p1">// <span class="s1">以模态方式展现出</span>UIActivityViewController</p>
+<p class="p5"><span class="s2">[</span><span class="s4">self</span><span class="s2"> </span>presentViewController<span class="s2">:activityVC </span>animated<span class="s2">:</span><span class="s4">YES</span><span class="s2"> </span>completion<span class="s2">:</span><span class="s4">Nil</span><span class="s2">];</span></p>
+</body>
+</html>
