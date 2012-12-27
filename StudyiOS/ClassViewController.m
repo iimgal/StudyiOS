@@ -29,7 +29,7 @@
     
     [self setTitle:@"StudyiOS"];
     
-    self.items = @[@"ALL", @"OLD"];
+    self.items = @[@"iOS6", @"OLD"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

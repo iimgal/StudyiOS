@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1802A2661455916E001F58E1 /* NetConnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1802A2651455916E001F58E1 /* NetConnViewController.m */; };
 		18158A391476A6D400D920B2 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 18158A381476A6D400D920B2 /* girl.png */; };
-		181B4FF4143D7C0F0019D100 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4FF3143D7C0F0019D100 /* UIKit.framework */; };
+		181B4FF4143D7C0F0019D100 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4FF3143D7C0F0019D100 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		181B4FF6143D7C0F0019D100 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4FF5143D7C0F0019D100 /* Foundation.framework */; };
 		181B4FF8143D7C0F0019D100 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4FF7143D7C0F0019D100 /* CoreGraphics.framework */; };
 		181B4FFA143D7C0F0019D100 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181B4FF9143D7C0F0019D100 /* CoreData.framework */; };
@@ -241,12 +241,12 @@
 		8DC53E18167098D0009FDB53 /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC53E17167098D0009FDB53 /* Demo.m */; };
 		8DD280BB167CCB00009C5A0F /* PassbookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD280B9167CCB00009C5A0F /* PassbookViewController.m */; };
 		8DD280BC167CCB00009C5A0F /* PassbookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DD280BA167CCB00009C5A0F /* PassbookViewController.xib */; };
-		8DD280BE167CCBC8009C5A0F /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD280BD167CCBC8009C5A0F /* PassKit.framework */; };
+		8DD280BE167CCBC8009C5A0F /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD280BD167CCBC8009C5A0F /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8DD280C0167CCBDB009C5A0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD280BF167CCBDB009C5A0F /* Security.framework */; };
 		8DE823981675E1FF00691AD7 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE823961675E1FF00691AD7 /* RefreshViewController.m */; };
 		8DE823991675E1FF00691AD7 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE823971675E1FF00691AD7 /* RefreshViewController.xib */; };
 		8DE8239D1675ED2200691AD7 /* Refresh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DE8239C1675ED2200691AD7 /* Refresh.jpg */; };
-		8DE86B3D167EC40D000DFCD7 /* PassSlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE86B3C167EC40D000DFCD7 /* PassSlot.framework */; };
+		8DE86B3D167EC40D000DFCD7 /* PassSlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE86B3C167EC40D000DFCD7 /* PassSlot.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8DE86B40167EC4CC000DFCD7 /* CoreImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE86B3F167EC4CC000DFCD7 /* CoreImageViewController.xib */; };
 		8DFD6ADF1671CDE000250F61 /* DemoCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD6ADE1671CDE000250F61 /* DemoCodeViewController.m */; };
 		8DFD6AE51671D90900250F61 /* Social.html in Resources */ = {isa = PBXBuildFile; fileRef = 8DFD6AE41671D90900250F61 /* Social.html */; };

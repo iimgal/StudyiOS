@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StudyiOS/FlowViewController.m"
-         timestampString = "377408971.20357"
+         timestampString = "378290377.042166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-flowViewCell:startDemo:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,6 +261,19 @@
          startingLineNumber = "79"
          endingLineNumber = "79"
          landmarkName = "-sendMessageWithSocialType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StudyiOS/AppDelegate.m"
+         timestampString = "378289783.574931"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

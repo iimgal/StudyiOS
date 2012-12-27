@@ -94,6 +94,7 @@
 - (void)flowViewCell:(FlowViewCell *)cell startDemo:(NSString *)demoUUID {
     UIViewController *VC = nil;
     
+    // iOS6
     if ([demoUUID isEqualToString:@"Social"]) {
         VC = [[SocialViewController alloc] initWithNibName:@"SocialViewController" bundle:nil];
     } else if ([demoUUID isEqualToString:@"Refresh"]) {
@@ -106,8 +107,24 @@
         VC = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     } else if ([demoUUID isEqualToString:@"Passbook"]) {
         VC = [[PassbookViewController alloc] initWithNibName:@"PassbookViewController" bundle:nil];
-    } else if ([demoUUID isEqualToString:@"Customization"]) {
-        [self customization]; return;
+    }
+    
+    // 判断iOS版本
+    if (VC) {
+        if ([[[[UIDevice currentDevice] systemVersion] substringToIndex:1] intValue] >= 6) {
+            VC.title = demoUUID;
+            [self.navigationController pushViewController:VC animated:YES];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"这是iOS6的新特性" message:@"请升级到iOS6" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        return;
+    }
+    
+    // iOS5
+    if ([demoUUID isEqualToString:@"Customization"]) {
+        [self customization];
+        return;
     } else if ([demoUUID isEqualToString:@"CoreImage"]) {
         VC = [[CoreImageViewController alloc] initWithNibName:@"CoreImageViewController" bundle:nil];
     }
