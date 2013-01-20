@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #d12f1b}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #008400; min-height: 19.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #008400}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; min-height: 19.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Heiti SC Light'; color: #008400}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #703daa}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #3d1d81}
+    span.s1 {color: #78492a}
+    span.s2 {font: 16.0px 'Heiti SC Light'}
+    span.s3 {color: #bb2ca2}
+    span.s4 {color: #4f8187}
+    span.s5 {color: #703daa}
+    span.s6 {color: #3d1d81}
+    span.s7 {font: 16.0px Menlo}
+    span.s8 {color: #d12f1b}
+    span.s9 {color: #000000}
+    span.s10 {color: #272ad8}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">#import </span>&lt;CoreImage/CoreImage.h&gt;</p>
+<p class="p2"><br></p>
+<p class="p3">// <span class="s2">得到图片路径创建</span>CIImage<span class="s2">对象</span></p>
+<p class="p4"><span class="s3">self</span>.<span class="s4">beginImage</span> = [<span class="s5">CIImage</span><span class="Apple-converted-space">  </span><span class="s6">imageWithContentsOfURL</span>:fileNameAndPath];</p>
+<p class="p5"><span class="Apple-converted-space">    </span></p>
+<p class="p3">// <span class="s2">创建基于</span>GPU<span class="s2">的</span>CIContext<span class="s2">对象</span></p>
+<p class="p4"><span class="s5">CIContext</span> *context = [<span class="s5">CIContext</span> <span class="s6">contextWithOptions</span>: <span class="s3">nil</span>];</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s7">// </span>创建过滤器</p>
+<p class="p4"><span class="s5">CIFilter</span> *filter = [<span class="s5">CIFilter</span> <span class="s6">filterWithName</span>:<span class="s8">@"CISepiaTone"</span>];</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s7">// </span>设置过滤器参数</p>
+<p class="p7"><span class="s9">[filter </span><span class="s6">setValue</span><span class="s9">:</span><span class="s3">self</span><span class="s9">.</span><span class="s4">beginImage</span><span class="s9"> </span><span class="s6">forKey</span><span class="s9">:</span>kCIInputImageKey<span class="s9">];</span></p>
+<p class="p1"><span class="s9">[filter </span><span class="s6">setValue</span><span class="s9">:</span><span class="s10">0.5</span><span class="s9"> </span><span class="s6">forKey</span><span class="s9">:</span>@"inputIntensity"<span class="s9">];</span></p>
+<p class="p5"><br></p>
+<p class="p6"><span class="s7">// </span>得到过滤后的图片</p>
+<p class="p4"><span class="s5">CIImage</span> *outputImage = [<span class="s3">self</span>.<span class="s4">filter</span> <span class="s6">outputImage</span>];</p>
+<p class="p2"><br></p>
+<p class="p6"><span class="s7">// </span>转换为UIImage格式</p>
+<p class="p4"><span class="s5">CGImageRef</span> cgimg = [<span class="s3">self</span>.<span class="s4">context</span> <span class="s6">createCGImage</span>:outputImage <span class="s6">fromRect</span>:[outputImage <span class="s6">extent</span>]];</p>
+<p class="p4"><span class="s5">UIImage</span> *newImg = [<span class="s5">UIImage</span> <span class="s6">imageWithCGImage</span>:cgimg];</p>
+<p class="p2"><br></p>
+<p class="p3">// <span class="s2">释放</span>C<span class="s2">对象</span></p>
+<p class="p8">CGImageRelease<span class="s9">(cgimg);</span></p>
+</body>
+</html>

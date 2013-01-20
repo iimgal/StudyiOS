@@ -28,8 +28,9 @@
     [super viewDidLoad];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:self.uuid ofType:@"html"];
-    
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath: path]]];
+    if (path) {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath: path]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning

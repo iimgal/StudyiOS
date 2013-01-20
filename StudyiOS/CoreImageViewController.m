@@ -49,14 +49,17 @@
     self.beginImage = [CIImage  imageWithContentsOfURL:fileNameAndPath];
     
     // 创建基于GPU的CIContext对象
-    self.context = [CIContext contextWithOptions: nil];
+    CIContext *context = [CIContext contextWithOptions: nil];
+    self.context = context;
     
     // 创建基于CPU的CIContext对象
     //context = [CIContext contextWithOptions: [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:kCIContextUseSoftwareRenderer]];
     
     // 创建过滤器
-    self.filter = [CIFilter filterWithName:@"CISepiaTone"];
-    self.filter2 = [CIFilter filterWithName:@"CIHueAdjust"];
+    CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone"];
+    CIFilter *filter2 = [CIFilter filterWithName:@"CIHueAdjust"];
+    self.filter = filter;
+    self.filter2 = filter2;
     
     // 设置界面
     self.slider.minimumValue = 0.0;

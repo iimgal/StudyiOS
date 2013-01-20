@@ -11,7 +11,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 
-@interface SocialViewController : UIViewController
+@interface SocialViewController : BaseViewController
 
 @property (retain, nonatomic) IBOutlet UIButton *twitterButton;
 @property (retain, nonatomic) IBOutlet UIButton *facebookButton;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PassbookViewController : UIViewController
+@interface PassbookViewController : BaseViewController
 
 @property (assign, nonatomic) BOOL isPassing;
 @property (strong, nonatomic) IBOutlet UILabel *label;

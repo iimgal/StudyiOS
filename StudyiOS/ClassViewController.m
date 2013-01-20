@@ -7,6 +7,7 @@
 //
 
 #import "ClassViewController.h"
+#import "FlowViewController.h"
 
 @interface ClassViewController ()
 
@@ -29,7 +30,8 @@
     
     [self setTitle:@"StudyiOS"];
     
-    self.items = @[@"iOS6", @"OLD"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Flow.plist" ofType:nil];
+    self.items = [NSArray arrayWithContentsOfFile:path];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,7 +65,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.textLabel.text = [self.items objectAtIndex:[indexPath row]];
+    NSDictionary *dic = self.items[indexPath.row];
+    cell.textLabel.text = dic[@"type"];
     
     return cell;
 }
@@ -72,9 +75,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *str = [self.items objectAtIndex:[indexPath row]];
+    NSString *str = self.items[indexPath.row][@"type"];
     
-    if ([str isEqualToString:@"OLD"]) {
+    if ([str isEqualToString:@"Old"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         [self.navigationController pushViewController:storyboard.instantiateInitialViewController animated:YES];
         
@@ -87,10 +90,18 @@
 
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    NSString *str = [self.items objectAtIndex:[path row]];
-    UIViewController *VC = segue.destinationViewController;
-    [VC setTitle:str];
+    
+    if ([segue.identifier isEqualToString:@"classflow"]) {
+        
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        NSDictionary *dic = self.items[path.row];
+        NSString *title = dic[@"type"];
+        NSArray *items = dic[@"items"];
+        
+        FlowViewController *vc = (FlowViewController *)segue.destinationViewController;
+        [vc setTitle:title];
+        [vc setItems:items];
+    }
 }
 
 @end

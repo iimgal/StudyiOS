@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CoreImageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CoreImageViewController : BaseViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UISlider *slider;

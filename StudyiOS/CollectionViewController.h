@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CollectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface CollectionViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *items;

@@ -37,20 +37,7 @@
     
     self.items = @[@"blue", @"red", @"green", @"girl",@"blue", @"red", @"green", @"girl",@"blue", @"red", @"green", @"girl"];
     
-    // 如要单独使用请注释掉这部分代码
-    // 增加Code按钮，可跳转至教学页面
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Code" style:UIBarButtonItemStyleBordered target:self action:@selector(code)];
-    self.navigationItem.rightBarButtonItem = item;
-}
-
-// 如要单独使用请注释掉这部分代码
-// 跳转至教学页面
-- (void)code
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    DemoCodeViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"DemoCodeViewController"];
-    controller.uuid = self.title;
-    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

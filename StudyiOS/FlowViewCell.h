@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#define kMargin 10.0f
-#define kWidth 300.0f
 
 @protocol FlowViewCellDelegate;
 
 
 @interface FlowViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) IBOutlet UIImageView *flowImageView;
 @property (strong, nonatomic) IBOutlet UILabel *flowTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *flowFromLabel;
@@ -23,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *flowCommentButton;
 @property (strong, nonatomic) NSString *demoUUID;
 @property (assign, nonatomic) id <FlowViewCellDelegate> flowViewCellDelegate;
+
++ (CGFloat)heightForCell:(NSDictionary *)dic;
 
 - (void)setCell:(NSDictionary *)dic;
 

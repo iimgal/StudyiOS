@@ -7,6 +7,11 @@
 //
 
 #import "FlowViewCell.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define kImageWidth         300.0f
+#define kImageHeight        300.0f
+#define kCellHeight         356.0f
 
 @implementation FlowViewCell
 
@@ -24,50 +29,42 @@
     
     CGFloat width = [[dic objectForKey:@"width"] floatValue];
     CGFloat height = [[dic objectForKey:@"height"] floatValue];
-    CGFloat imageViewWidth = kWidth;
-    CGFloat imageViewHeight = 0.0f;
     
-    if (width > 0) {
-        imageViewHeight = height/width*imageViewWidth;
-    } else {
-        imageViewHeight = kWidth;
+    if (width == 0) {
+        return kCellHeight;
     }
     
-    return imageViewHeight;
+    CGFloat imageViewWidth = kImageWidth;
+    CGFloat imageViewHeight = 0.0f;
+    
+    imageViewHeight = height/width*imageViewWidth;
+    
+    return kCellHeight + imageViewHeight - kImageHeight;
 }
 
 - (void)setCell:(NSDictionary *)dic {
+    if (!self.demoUUID) {
+        self.flowTitleLabel.backgroundColor = [UIColor whiteColor];
+        self.topView.layer.cornerRadius = 5;
+        self.topView.layer.masksToBounds = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startTheDemo)];
+        [self.flowImageView addGestureRecognizer:tap];
+    }
     
     NSString *title = [dic objectForKey:@"title"];
     NSString *uuid = [dic objectForKey:@"uuid"];
     NSString *imageName = [dic objectForKey:@"image"];
     
     self.demoUUID = uuid;
+    self.flowTitleLabel.text = title;
     
     NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     if (!image) {
-        image = [UIImage imageNamed:@"girl"];
+        image = [UIImage imageNamed:@"flowdefault"];
     }
-    
-    CGFloat width = image.size.width;
-    CGFloat height = image.size.height;
-    
-    CGFloat imageViewWidth = kWidth;
-    CGFloat imageViewHeight = height/width*imageViewWidth;
-    
-
-    
-    self.flowImageView.frame = CGRectMake(kMargin, kMargin, imageViewWidth, imageViewHeight);
     self.flowImageView.image = image;
-    
-    self.flowTitleLabel.frame = CGRectMake(0, self.flowImageView.frame.size.height + kMargin*2, 320, 20);
-    self.flowTitleLabel.text = title;
-    
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.flowTitleLabel.frame.origin.y + self.flowTitleLabel.frame.size.height);
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startTheDemo)];
-    [_flowImageView addGestureRecognizer:tap];
 }
 
 - (IBAction)fancied:(id)sender {

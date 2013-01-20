@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActivityViewController : UIViewController
+@interface ActivityViewController : BaseViewController
 
 - (IBAction)ActivityVCAction:(id)sender;
 

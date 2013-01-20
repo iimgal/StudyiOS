@@ -16,6 +16,7 @@
 #import "PassbookViewController.h"
 #import "CustomizationViewController.h"
 #import "CoreImageViewController.h"
+#import "PageViewController.h"
 
 @interface FlowViewController ()
 
@@ -23,11 +24,10 @@
 
 @implementation FlowViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        _items = @[];
     }
     return self;
 }
@@ -35,10 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Flow.plist" ofType:nil];
-    self.items = [NSArray arrayWithContentsOfFile:path];
     
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -67,8 +66,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+    return [FlowViewCell heightForCell:self.items[indexPath.row]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,6 +125,8 @@
         return;
     } else if ([demoUUID isEqualToString:@"CoreImage"]) {
         VC = [[CoreImageViewController alloc] initWithNibName:@"CoreImageViewController" bundle:nil];
+    } else if ([demoUUID isEqualToString:@"Page"]) {
+        VC = [[PageViewController alloc] initWithNibName:@"PageViewController" bundle:nil];
     }
     
     if (VC) {
