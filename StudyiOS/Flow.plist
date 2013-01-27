@@ -4,7 +4,11 @@
 <array>
 	<dict>
 		<key>type</key>
-		<string>iOS6</string>
+		<string>All</string>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>iOS6&amp;iOS5</string>
 		<key>items</key>
 		<array>
 			<dict>
@@ -17,7 +21,7 @@
 				<key>image</key>
 				<string>Social.jpg</string>
 				<key>title</key>
-				<string>iOS6-社交框架: 系统级别集成微博，facebook，twitter</string>
+				<string>iOS6-社交框架</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -79,13 +83,6 @@
 				<key>title</key>
 				<string>iOS6-Passbook</string>
 			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>type</key>
-		<string>iOS5</string>
-		<key>items</key>
-		<array>
 			<dict>
 				<key>width</key>
 				<integer>640</integer>
@@ -126,7 +123,62 @@
 	</dict>
 	<dict>
 		<key>type</key>
-		<string>Old</string>
+		<string>Popular</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>width</key>
+				<integer>640</integer>
+				<key>height</key>
+				<integer>640</integer>
+				<key>uuid</key>
+				<string>Path</string>
+				<key>image</key>
+				<string>Path.jpg</string>
+				<key>title</key>
+				<string>仿Path菜单栏</string>
+			</dict>
+			<dict>
+				<key>width</key>
+				<integer>640</integer>
+				<key>height</key>
+				<integer>776</integer>
+				<key>uuid</key>
+				<string>Pinterest</string>
+				<key>image</key>
+				<string>Pinterest.jpg</string>
+				<key>title</key>
+				<string>仿Pinterest瀑布流</string>
+			</dict>
+			<dict>
+				<key>width</key>
+				<integer>640</integer>
+				<key>height</key>
+				<integer>912</integer>
+				<key>uuid</key>
+				<string>Facebook</string>
+				<key>image</key>
+				<string>Facebook.jpg</string>
+				<key>title</key>
+				<string>仿Facebook侧边导航栏</string>
+			</dict>
+			<dict>
+				<key>width</key>
+				<integer>640</integer>
+				<key>height</key>
+				<integer>600</integer>
+				<key>uuid</key>
+				<string>Clear</string>
+				<key>image</key>
+				<string>Clear.jpg</string>
+				<key>title</key>
+				<string>仿Clear纯手势操作</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>Basic</string>
 	</dict>
 </array>
 </plist>

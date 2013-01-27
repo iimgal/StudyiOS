@@ -26,9 +26,8 @@ static IIAVAudioPlayer *me = nil;
     }
     
     if (me.player == nil) {
-        me.player = [[AVAudioPlayer alloc] 
-                     initWithContentsOfURL:[NSURL fileURLWithPath:path] 
-                     error:nil];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        me.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         me.path = path;
     }else {
         if ([me.player isPlaying]) {

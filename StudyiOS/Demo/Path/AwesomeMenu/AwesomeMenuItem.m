@@ -1,20 +1,21 @@
 //
-//  QuadCurveMenuItem.m
+//  AwesomeMenuItem.m
 //  AwesomeMenu
 //
 //  Created by Levey on 11/30/11.
-//  Copyright (c) 2011 lunaapp.com. All rights reserved.
+//  Copyright (c) 2011 Levey & Other Contributors. All rights reserved.
 //
 
-#import "QuadCurveMenuItem.h"
+#import "AwesomeMenuItem.h"
 static inline CGRect ScaleRect(CGRect rect, float n) {return CGRectMake((rect.size.width - rect.size.width * n)/ 2, (rect.size.height - rect.size.height * n) / 2, rect.size.width * n, rect.size.height * n);}
-@implementation QuadCurveMenuItem
+@implementation AwesomeMenuItem
+
+@synthesize contentImageView = _contentImageView;
 
 @synthesize startPoint = _startPoint;
 @synthesize endPoint = _endPoint;
 @synthesize nearPoint = _nearPoint;
 @synthesize farPoint = _farPoint;
-@synthesize delegate  = _delegate;
 
 #pragma mark - initialization & cleaning up
 - (id)initWithImage:(UIImage *)img 
@@ -34,11 +35,6 @@ highlightedContentImage:(UIImage *)hcimg;
     return self;
 }
 
-- (void)dealloc
-{
-    [_contentImageView release];
-    [super dealloc];
-}
 #pragma mark - UIView's methods
 - (void)layoutSubviews
 {
@@ -54,9 +50,9 @@ highlightedContentImage:(UIImage *)hcimg;
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     self.highlighted = YES;
-    if ([_delegate respondsToSelector:@selector(quadCurveMenuItemTouchesBegan:)])
+    if ([_delegate respondsToSelector:@selector(AwesomeMenuItemTouchesBegan:)])
     {
-       [_delegate quadCurveMenuItemTouchesBegan:self];
+       [_delegate AwesomeMenuItemTouchesBegan:self];
     }
     
 }
@@ -77,9 +73,9 @@ highlightedContentImage:(UIImage *)hcimg;
     CGPoint location = [[touches anyObject] locationInView:self];
     if (CGRectContainsPoint(ScaleRect(self.bounds, 2.0f), location))
     {
-        if ([_delegate respondsToSelector:@selector(quadCurveMenuItemTouchesEnd:)])
+        if ([_delegate respondsToSelector:@selector(AwesomeMenuItemTouchesEnd:)])
         {
-            [_delegate quadCurveMenuItemTouchesEnd:self];
+            [_delegate AwesomeMenuItemTouchesEnd:self];
         }
     }
 }

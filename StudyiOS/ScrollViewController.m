@@ -7,7 +7,6 @@
 //
 
 #import "ScrollViewController.h"
-#import "UIScrollView+TouchScroll.h"
 
 @implementation ScrollViewController
 @synthesize scrollView;
@@ -77,7 +76,7 @@
     }
     
     // 设置ScrollView大小
-    self.scrollView.contentSize = CGSizeMake(width*[array count], scrollView.bounds.size.height);
+    self.scrollView.contentSize = CGSizeMake(width*[array count], 0);
     
 }
 #pragma mark -

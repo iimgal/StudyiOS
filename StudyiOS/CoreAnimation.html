@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.34">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #d12f1b}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #78492a; min-height: 19.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #008400}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #703daa}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Heiti SC Light'; color: #008400}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; min-height: 19.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #3d1d81}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Menlo; color: #78492a}
+    span.s1 {color: #78492a}
+    span.s2 {font: 16.0px 'Heiti SC Light'}
+    span.s3 {color: #000000}
+    span.s4 {color: #3d1d81}
+    span.s5 {color: #703daa}
+    span.s6 {color: #bb2ca2}
+    span.s7 {font: 16.0px Menlo}
+    span.s8 {color: #d12f1b}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">#import </span>&lt;QuartzCore/QuartzCore.h&gt;</p>
+<p class="p2"><br></p>
+<p class="p3">// <span class="s2">创建</span>CATransition<span class="s2">对象</span></p>
+<p class="p4">CATransition<span class="s3"> *animation = [</span>CATransition<span class="s3"> </span><span class="s4">animation</span><span class="s3">];</span></p>
+<p class="p3">// <span class="s2">代理</span></p>
+<p class="p5">animation.<span class="s5">delegate</span> = <span class="s6">self</span>;</p>
+<p class="p6"><span class="s7">// </span>设定动画时间</p>
+<p class="p5">animation.<span class="s5">duration</span> = <span class="s1">kDuration</span>;</p>
+<p class="p6"><span class="s7">// </span>设定动画快慢<span class="s7">(</span>开始与结束时较慢<span class="s7">)</span></p>
+<p class="p4"><span class="s3">animation.</span>timingFunction<span class="s3"> = [</span>CAMediaTimingFunction<span class="s3"> </span><span class="s4">functionWithName</span><span class="s3">:</span>kCAMediaTimingFunctionEaseInEaseOut<span class="s3">];</span></p>
+<p class="p6"><span class="s7">// </span>设定动画类型</p>
+<p class="p4"><span class="s3">animation.</span>type<span class="s3"> = </span>kCATransitionFade<span class="s3">;</span></p>
+<p class="p6"><span class="s7">// </span>设定动画方向</p>
+<p class="p4"><span class="s3">animation.</span>subtype<span class="s3"> = </span>kCATransitionFromLeft<span class="s3">;</span></p>
+<p class="p7"><br></p>
+<p class="p3">// ...(<span class="s2">视图切换代码)</span></p>
+<p class="p7"><span class="Apple-converted-space">    </span></p>
+<p class="p6"><span class="s7">// </span>动画开始</p>
+<p class="p8"><span class="s3">[[</span><span class="s6">self</span><span class="s3">.</span><span class="s5">view</span><span class="s3"> </span>layer<span class="s3">] </span>addAnimation<span class="s3">:animation </span>forKey<span class="s3">:</span><span class="s8">@"animation"</span><span class="s3">];</span></p>
+<p class="p7"><br></p>
+<p class="p9">#pragma mark CAAnimationDelegate</p>
+<p class="p6"><span class="s7">// </span>动画开始时调用</p>
+<p class="p5">- (<span class="s6">void</span>)animationDidStart:(<span class="s5">CAAnimation</span> *)anim</p>
+<p class="p7"><br></p>
+<p class="p6"><span class="s7">// </span>动画结束时调用</p>
+<p class="p5">- (<span class="s6">void</span>)animationDidStop:(<span class="s5">CAAnimation</span> *)anim finished:(<span class="s6">BOOL</span>)flag</p>
+</body>
+</html>

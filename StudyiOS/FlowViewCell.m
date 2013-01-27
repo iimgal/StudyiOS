@@ -8,6 +8,7 @@
 
 #import "FlowViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DAO.h"
 
 #define kImageWidth         300.0f
 #define kImageHeight        300.0f
@@ -44,12 +45,13 @@
 
 - (void)setCell:(NSDictionary *)dic {
     if (!self.demoUUID) {
-        self.flowTitleLabel.backgroundColor = [UIColor whiteColor];
+//        self.flowTitleLabel.backgroundColor = [UIColor whiteColor];
         self.topView.layer.cornerRadius = 5;
         self.topView.layer.masksToBounds = YES;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startTheDemo)];
         [self.flowImageView addGestureRecognizer:tap];
+        
     }
     
     NSString *title = [dic objectForKey:@"title"];
@@ -57,7 +59,8 @@
     NSString *imageName = [dic objectForKey:@"image"];
     
     self.demoUUID = uuid;
-    self.flowTitleLabel.text = title;
+    
+    [self.flowTitleLabel setText:title];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
     UIImage *image = [UIImage imageWithContentsOfFile:path];

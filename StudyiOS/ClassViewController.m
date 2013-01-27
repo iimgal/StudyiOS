@@ -67,7 +67,7 @@
     
     NSDictionary *dic = self.items[indexPath.row];
     cell.textLabel.text = dic[@"type"];
-    
+    cell.imageView.image = [UIImage imageNamed:dic[@"type"]];
     return cell;
 }
 
@@ -76,16 +76,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *str = self.items[indexPath.row][@"type"];
-    
-    if ([str isEqualToString:@"Old"]) {
+    // 跳转到旧版本
+    if ([str isEqualToString:@"Basic"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         [self.navigationController pushViewController:storyboard.instantiateInitialViewController animated:YES];
         
-        return;
+    } else {
+        [self performSegueWithIdentifier:@"classflow" sender:nil];
     }
-    
-    [self performSegueWithIdentifier:@"classflow" sender:nil];
-    
 }
 
 #pragma mark - Segue
@@ -95,12 +93,25 @@
         
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         NSDictionary *dic = self.items[path.row];
+        NSMutableArray *mutItems = [@[] mutableCopy];
+        if ([dic[@"type"] isEqualToString:@"All"]) {
+            
+            for (NSDictionary *one in self.items) {
+                if ([one[@"type"] isEqualToString:@"All"] || [one[@"type"] isEqualToString:@"Basic"]) {
+                    continue;
+                }
+                [mutItems addObjectsFromArray:one[@"items"]];
+            }
+        } else {
+            mutItems = dic[@"items"];
+        }
+        
         NSString *title = dic[@"type"];
-        NSArray *items = dic[@"items"];
         
         FlowViewController *vc = (FlowViewController *)segue.destinationViewController;
+        
         [vc setTitle:title];
-        [vc setItems:items];
+        [vc setItems:mutItems];
     }
 }
 

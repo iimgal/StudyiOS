@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     
+    self.webView.delegate = self;
     NSString *path = [[NSBundle mainBundle] pathForResource:self.uuid ofType:@"html"];
     if (path) {
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath: path]]];
@@ -42,4 +43,14 @@
     [self setWebView:nil];
     [super viewDidUnload];
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *requestURL = [request URL];
+    if (([[requestURL scheme] isEqualToString: @"http"] || [[requestURL scheme] isEqualToString:@"https"] || [[requestURL scheme] isEqualToString: @"mailto" ])
+        && (navigationType == UIWebViewNavigationTypeLinkClicked)) {
+        return ![[UIApplication sharedApplication] openURL:requestURL];
+    }
+    return YES;
+}
+
 @end

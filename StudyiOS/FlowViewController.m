@@ -8,15 +8,7 @@
 
 #import "FlowViewController.h"
 #import "FlowViewCell.h"
-#import "SocialViewController.h"
-#import "RefreshViewController.h"
-#import "ActivityViewController.h"
-#import "CollectionViewController.h"
-#import "MapViewController.h"
-#import "PassbookViewController.h"
-#import "CustomizationViewController.h"
-#import "CoreImageViewController.h"
-#import "PageViewController.h"
+#import "DefineViewController.h"
 
 @interface FlowViewController ()
 
@@ -38,11 +30,6 @@
     
     self.tableView.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +78,7 @@
 #pragma mark - FlowViewCellDelegate
 - (void)flowViewCell:(FlowViewCell *)cell startDemo:(NSString *)demoUUID {
     UIViewController *VC = nil;
-    
+    BOOL isAnimate = YES;
     // iOS6
     if ([demoUUID isEqualToString:@"Social"]) {
         VC = [[SocialViewController alloc] initWithNibName:@"SocialViewController" bundle:nil];
@@ -111,7 +98,7 @@
     if (VC) {
         if ([[[[UIDevice currentDevice] systemVersion] substringToIndex:1] intValue] >= 6) {
             VC.title = demoUUID;
-            [self.navigationController pushViewController:VC animated:YES];
+            [self.navigationController pushViewController:VC animated:isAnimate];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"这是iOS6的新特性" message:@"请升级到iOS6" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
@@ -129,9 +116,22 @@
         VC = [[PageViewController alloc] initWithNibName:@"PageViewController" bundle:nil];
     }
     
+    // Popular
+    if ([demoUUID isEqualToString:@"Path"]) {
+        VC = [[PathViewController alloc] initWithNibName:@"PathViewController" bundle:nil];
+    } else if ([demoUUID isEqualToString:@"Pinterest"]) {
+        VC = [[PinterestViewController alloc] initWithNibName:@"PinterestViewController" bundle:nil];
+    } else if ([demoUUID isEqualToString:@"Facebook"]) {
+        VC = [[FacebookViewController alloc] initWithNibName:@"FacebookViewController" bundle:nil];
+        isAnimate = NO;
+    } else if ([demoUUID isEqualToString:@"Clear"]) {
+        VC = [[ClearViewController alloc] initWithNibName:@"ClearViewController" bundle:nil];
+    }
+
+    
     if (VC) {
         VC.title = demoUUID;
-        [self.navigationController pushViewController:VC animated:YES];
+        [self.navigationController pushViewController:VC animated:isAnimate];
     }
 }
 

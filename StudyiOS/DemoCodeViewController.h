@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DemoCodeViewController : UIViewController
+ 
+@interface DemoCodeViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (copy, nonatomic) NSString *uuid;
