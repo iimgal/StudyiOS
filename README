@@ -1,6 +1,7 @@
-Version1.5:增加iOS6专题
-以后更新会以专题形式,着重介绍大家感兴趣的知识点.
-接下来计划做iOS5专题,动画专题和网络专题.
+Version 2.0: 
+全新的内容; 全新的界面. 
+让开发者们更直观的浏览想要的功能和代码.
+以专题形式,着重介绍大家感兴趣的知识点.
 
 iOS6:
 系统集成社交框架 Social Framework
@@ -9,6 +10,17 @@ iOS6:
 瀑布流控件 UICollectionView
 官方地图新功能 MKMapItem
 电子钱包 PassBook
+
+iOS5:
+自定义控件
+新的图片处理框架 CoreImage
+新的控制器容器 UIPageViewController
+
+Popular:
+仿Path菜单栏
+仿Pinterest瀑布流
+仿Facebook侧边导航栏
+仿Clear纯手势UI
 
 原Demo:
 系统功能: 
@@ -40,9 +52,7 @@ UI设计:
 
 高级功能: 
 动画效果:16种视图切换动画效果. 关键字:Core Animation 
-图片映射:模仿Mac任务栏的图标映射效果. 关键字:IIImage(自定义) 
-图片渲染:iOS新特性,多种图片渲染效果. 关键字:Core Image 
-Path菜单:Path应用中大受好评的菜单展开效果 
+图片映射:模仿Mac任务栏的图标映射效果. 关键字:IIImage(自定义)
 
 其它: 
 传值方法:总结编码中的4种跨控制器传值方法. 关键字:全局变量,单例模式,Delegate,Notification
