@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    [self setTitle:@"StudyiOS"];
+    [self setTitle:NSLocalizedString(@"DevGuide", nil)];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Flow.plist" ofType:nil];
     self.items = [NSArray arrayWithContentsOfFile:path];

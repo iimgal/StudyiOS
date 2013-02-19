@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
+    
 
 }
 
@@ -128,7 +129,6 @@
         VC = [[ClearViewController alloc] initWithNibName:@"ClearViewController" bundle:nil];
     }
 
-    
     if (VC) {
         VC.title = demoUUID;
         [self.navigationController pushViewController:VC animated:isAnimate];

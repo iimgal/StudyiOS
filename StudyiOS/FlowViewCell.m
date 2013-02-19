@@ -57,6 +57,7 @@
     NSString *title = [dic objectForKey:@"title"];
     NSString *uuid = [dic objectForKey:@"uuid"];
     NSString *imageName = [dic objectForKey:@"image"];
+    title = NSLocalizedString(title, nil);
     
     self.demoUUID = uuid;
     

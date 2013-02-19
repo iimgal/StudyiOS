@@ -108,7 +108,6 @@
 		18A827F7147BBB1E00CA608F /* 18.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18A827F6147BBB1E00CA608F /* 18.mp3 */; };
 		18AB5C5D145CFBAF00F9A7A6 /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AB5C5C145CFBAF00F9A7A6 /* CodeViewController.m */; };
 		18AB5CE7145D07C100F9A7A6 /* AnimationViewController.x in Resources */ = {isa = PBXBuildFile; fileRef = 18AB5CE6145D07C100F9A7A6 /* AnimationViewController.x */; };
-		18BD535A14628430002F6509 /* localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18BD535914628430002F6509 /* localizable.strings */; };
 		18C55F26144D288900191FDE /* WebPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C55F25144D288900191FDE /* WebPageViewController.m */; };
 		18C55F79144D702F00191FDE /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C55F78144D702F00191FDE /* GDataXMLNode.m */; };
 		18C55F81144D747700191FDE /* XMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C55F80144D747700191FDE /* XMLViewController.m */; };
@@ -226,6 +225,8 @@
 		8D3FC23516762BE700F65633 /* Social.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D3FC23416762BE700F65633 /* Social.jpg */; };
 		8D425D15166CED06001BE85E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D425D14166CED06001BE85E /* Storyboard.storyboard */; };
 		8D425D1A166CEE11001BE85E /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D425D19166CEE11001BE85E /* ClassViewController.m */; };
+		8D45D5C916D3233E0002836B /* StudyiOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181B4FFD143D7C0F0019D100 /* StudyiOS-Info.plist */; };
+		8D45D60916D325E10002836B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D45D60B16D325E10002836B /* Localizable.strings */; };
 		8D6708ED16797F6000878633 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6708EB16797F6000878633 /* CollectionViewController.m */; };
 		8D6708EE16797F6000878633 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D6708EC16797F6000878633 /* CollectionViewController.xib */; };
 		8D6708F81679D5E400878633 /* CollectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6708F71679D5E400878633 /* CollectionHeadView.m */; };
@@ -457,7 +458,6 @@
 		18AB5C5B145CFBAF00F9A7A6 /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
 		18AB5C5C145CFBAF00F9A7A6 /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
 		18AB5CE6145D07C100F9A7A6 /* AnimationViewController.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AnimationViewController.x; sourceTree = "<group>"; };
-		18BD535914628430002F6509 /* localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = localizable.strings; sourceTree = "<group>"; };
 		18C55F24144D288900191FDE /* WebPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPageViewController.h; sourceTree = "<group>"; };
 		18C55F25144D288900191FDE /* WebPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPageViewController.m; sourceTree = "<group>"; };
 		18C55F77144D702F00191FDE /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
@@ -618,6 +618,10 @@
 		8D425D14166CED06001BE85E /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8D425D18166CEE11001BE85E /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
 		8D425D19166CEE11001BE85E /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		8D45D5B216D30A570002836B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		8D45D5B416D31AC90002836B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		8D45D60A16D325E10002836B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8D45D60C16D325E50002836B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8D6708EA16797F6000878633 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8D6708EB16797F6000878633 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8D6708EC16797F6000878633 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -843,8 +847,8 @@
 				181B5003143D7C0F0019D100 /* StudyiOS-Prefix.pch */,
 				181B5001143D7C0F0019D100 /* main.m */,
 				181B4FFE143D7C0F0019D100 /* InfoPlist.strings */,
-				18BD535914628430002F6509 /* localizable.strings */,
 				18F8D484143DFA4B0021E80F /* StudyiOS.entitlements */,
+				8D45D60B16D325E10002836B /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1640,6 +1644,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 181B4FE4143D7C0E0019D100;
 			productRefGroup = 181B4FF0143D7C0F0019D100 /* Products */;
@@ -1696,7 +1701,6 @@
 				18F1453D14627C8C004954AF /* blueArrow@2x.png in Resources */,
 				18F1453E14627C8C004954AF /* whiteArrow.png in Resources */,
 				18F1453F14627C8C004954AF /* whiteArrow@2x.png in Resources */,
-				18BD535A14628430002F6509 /* localizable.strings in Resources */,
 				18158A391476A6D400D920B2 /* girl@2x.png in Resources */,
 				18A827F4147BB1C800CA608F /* Movie.m4v in Resources */,
 				18A827F7147BBB1E00CA608F /* 18.mp3 in Resources */,
@@ -1808,6 +1812,8 @@
 				8D8948FD16B4F637009CFECB /* Basic@2x.png in Resources */,
 				8D8948FE16B4F637009CFECB /* iOS6&iOS5@2x.png in Resources */,
 				8D8948FF16B4F637009CFECB /* Popular@2x.png in Resources */,
+				8D45D5C916D3233E0002836B /* StudyiOS-Info.plist in Resources */,
+				8D45D60916D325E10002836B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1939,6 +1945,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				181B4FFF143D7C0F0019D100 /* en */,
+				8D45D5B216D30A570002836B /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1947,8 +1954,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				181B5008143D7C0F0019D100 /* en */,
+				8D45D5B416D31AC90002836B /* zh-Hans */,
 			);
 			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		8D45D60B16D325E10002836B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D45D60A16D325E10002836B /* en */,
+				8D45D60C16D325E50002836B /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2040,8 +2057,8 @@
 		181B502D143D7C0F0019D100 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: CHEN YAO (BF763RBEB5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHEN YAO (BF763RBEB5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/StudyiOS\"",
@@ -2062,8 +2079,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "555A5E6C-9DF7-4956-B7B6-3BEEF918CC43";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "555A5E6C-9DF7-4956-B7B6-3BEEF918CC43";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

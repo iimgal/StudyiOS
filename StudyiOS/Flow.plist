@@ -21,7 +21,7 @@
 				<key>image</key>
 				<string>Social.jpg</string>
 				<key>title</key>
-				<string>iOS6-社交框架</string>
+				<string>iOS6-Social Framework</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -33,7 +33,7 @@
 				<key>image</key>
 				<string>Refresh.jpg</string>
 				<key>title</key>
-				<string>iOS6-下拉刷新</string>
+				<string>iOS6-UIRefreshControl</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -136,7 +136,7 @@
 				<key>image</key>
 				<string>Path.jpg</string>
 				<key>title</key>
-				<string>仿Path菜单栏</string>
+				<string>Like Path</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -148,7 +148,7 @@
 				<key>image</key>
 				<string>Pinterest.jpg</string>
 				<key>title</key>
-				<string>仿Pinterest瀑布流</string>
+				<string>Like Pinterest</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -160,7 +160,7 @@
 				<key>image</key>
 				<string>Facebook.jpg</string>
 				<key>title</key>
-				<string>仿Facebook侧边导航栏</string>
+				<string>Like Facebook</string>
 			</dict>
 			<dict>
 				<key>width</key>
@@ -172,7 +172,7 @@
 				<key>image</key>
 				<string>Clear.jpg</string>
 				<key>title</key>
-				<string>仿Clear纯手势操作</string>
+				<string>Like Clear</string>
 			</dict>
 		</array>
 	</dict>

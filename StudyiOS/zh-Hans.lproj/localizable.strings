@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  StudyiOS
+
+  Created by ZhangYiCheng on 13-2-19.
+  Copyright (c) 2013年 ZhangYiCheng. All rights reserved.
+*/
+
+"DevGuide" = "开发者指南";
+
+"iOS6-Social Framework" = "iOS6-社交框架";
+"iOS6-UIRefreshControl" = "iOS6-下拉刷新";
+"Like Path" = "仿Path菜单栏";
+"Like Pinterest" = "仿Pinterest瀑布流";
+"Like Facebook" = "仿Facebook侧边导航栏";
+"Like Clear" = "仿Clear纯手势操作";
